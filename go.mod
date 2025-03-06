@@ -18,7 +18,7 @@ require (
 	github.com/inconshreveable/mousetrap v1.1.0 // indirect
 	github.com/nexus-rpc/sdk-go v0.3.0 // indirect
 	github.com/pborman/uuid v1.2.1 // indirect
-	github.com/phoebus-84/kaa v0.0.0-20250305102630-2d4071146c03 // indirect
+	github.com/phoebus-84/Validation v0.1.0 // indirect
 	github.com/pluja/pocketbase v0.1.0 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/robfig/cron v1.2.0 // indirect

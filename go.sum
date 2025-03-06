@@ -57,6 +57,8 @@ github.com/nexus-rpc/sdk-go v0.3.0/go.mod h1:TpfkM2Cw0Rlk9drGkoiSMpFqflKTiQLWUNy
 github.com/opentracing/opentracing-go v1.1.0/go.mod h1:UkNAQd3GIcIGf0SeVgPpRdFStlNbqXla1AfSYxPUl2o=
 github.com/pborman/uuid v1.2.1 h1:+ZZIw58t/ozdjRaXh/3awHfmWRbzYxJoAdNJxe/3pvw=
 github.com/pborman/uuid v1.2.1/go.mod h1:X/NO0urCmaxf9VXbdlT7C2Yzkj2IKimNn4k+gtPdI/k=
+github.com/phoebus-84/Validation v0.1.0 h1:y3rrk2tBB0dL6vFqHClsVaKZkYh14nW8wUjXTVYsgUc=
+github.com/phoebus-84/Validation v0.1.0/go.mod h1:PHyc7E1m5H2WAL5y+5SbKJeIGPtfeaxdL5ng7o0jpXo=
 github.com/phoebus-84/kaa v0.0.0-20250305102630-2d4071146c03 h1:wng6gJdxZ9LV0Cs2UxPjbuIdg/7FIYgS+oiXtyt7oL4=
 github.com/phoebus-84/kaa v0.0.0-20250305102630-2d4071146c03/go.mod h1:oTeNn5yrNMm/Rur1yMlp8m7oGcXtYaG/FAamqUqiuq8=
 github.com/pkg/errors v0.8.1/go.mod h1:bwawxfHBFNV+L2hUp1rHADufV3IMtnDRdf1r5NINEl0=
