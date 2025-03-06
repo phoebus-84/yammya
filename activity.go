@@ -3,8 +3,10 @@ package yammya
 import (
 	"bytes"
 	"context"
+	"errors"
 
 	"github.com/phoebus-84/kaa/cmd"
+	"github.com/pluja/pocketbase"
 	"go.temporal.io/sdk/activity"
 	gomail "gopkg.in/mail.v2"
 )
@@ -49,5 +51,25 @@ func SendEmail(ctx context.Context, input SendEmailInput) error {
 }
 
 func MakeAPICall(ctx context.Context, input APICallInput) error {
+	client := pocketbase.NewClient("http://localhost:8090")
+	logger := activity.GetLogger(ctx)
+	record, err := client.One("test", "25mu78f4uy7o848")
+	if err != nil {
+		logger.Error("Failed to make API call", "Error", err)
+		return err
+	}
+	logger.Debug("API call response", "Response", record)
+	logger.Debug("Quanto: ", record["quanto"])
+	quanto, ok := record["quanto"].(float64)
+	if !ok {
+		logger.Error("Failed to convert 'quanto' to int")
+		return errors.New("type assertion to int failed")
+	}
+	value := quanto + 1
+	errUpdate := client.Update("test", "25mu78f4uy7o848", map[string]any{"quanto": value})
+	if errUpdate != nil {
+		logger.Error("Failed to update record", "Error", errUpdate)
+		return errUpdate
+	}
 	return nil
 }
