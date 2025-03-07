@@ -4,6 +4,8 @@ import (
 	"bytes"
 	"context"
 	"errors"
+	"os"
+	"strconv"
 
 	cmd "github.com/phoebus-84/Validation"
 	"github.com/pluja/pocketbase"
@@ -13,6 +15,13 @@ import (
 
 const (
 	schemaPath = "schemas/schema.yaml"
+)
+
+var (
+	host     = os.Getenv("HOST")
+	email    = os.Getenv("EMAIL")
+	port, _  = strconv.Atoi(os.Getenv("PORT"))
+	password = os.Getenv("PASSWORD")
 )
 
 func ValidateYaml(ctx context.Context, input ValidationInput) (ValidationOutput, error) {
@@ -43,7 +52,7 @@ func SendEmail(ctx context.Context, input SendEmailInput) error {
 	message.SetHeader("To", input.Email)
 	message.SetHeader("Subject", "YAML Validation")
 	message.SetBody("text/html", input.Message)
-	dialer := gomail.NewDialer("mail.dyne.org", 465, "testmail@dyne.org", "odQxmE4LPakFDwrfNuPqbCLYZCg34A")
+	dialer := gomail.NewDialer(host, port, email, password)
 	if err := dialer.DialAndSend(message); err != nil {
 		return err
 	}
